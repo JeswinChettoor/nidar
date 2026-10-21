@@ -1,0 +1,22 @@
+
+services:
+  nidar:
+    build: .
+    image: nidar-ros:humble
+    container_name: nidar-dev
+
+    stdin_open: true
+    tty: true
+    working_dir: /workspace
+
+    volumes:
+      - .:/workspace
+      - /dev/bus/usb:/dev/bus/usb
+
+    # Useful for ROS 2 discovery on Linux
+    network_mode: host
+
+    # NVIDIA laptop only; requires NVIDIA Container Toolkit
+    gpus: all
+
+    command: bash
