@@ -1,0 +1,2 @@
+[0.114s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'mixin', 'list']
+[0.114s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='mixin', subverb_name='list', verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7fff51370820>, verb_extension=<colcon_mixin.subverb.list.ListMixinSubverb object at 0x7fff5133b520>, main=<bound method ListMixinSubverb.main of <colcon_mixin.subverb.list.ListMixinSubverb object at 0x7fff5133b520>>, name=None)

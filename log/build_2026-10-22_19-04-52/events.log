@@ -1,0 +1,45 @@
+[0.000000] (-) TimerEvent: {}
+[0.000563] (-) JobUnselected: {'identifier': 'mapping'}
+[0.000852] (-) JobUnselected: {'identifier': 'nidar_msgs'}
+[0.000875] (-) JobUnselected: {'identifier': 'perception'}
+[0.000897] (sllidar_ros2) JobQueued: {'identifier': 'sllidar_ros2', 'dependencies': OrderedDict()}
+[0.000920] (sllidar_ros2) JobStarted: {'identifier': 'sllidar_ros2'}
+[0.007508] (sllidar_ros2) JobProgress: {'identifier': 'sllidar_ros2', 'progress': 'cmake'}
+[0.007960] (sllidar_ros2) Command: {'cmd': ['/usr/bin/cmake', '/workspace/src/sllidar_ros2', '-DCMAKE_INSTALL_PREFIX=/workspace/install/sllidar_ros2'], 'cwd': '/workspace/build/sllidar_ros2', 'env': OrderedDict([('HOSTNAME', 'cleo'), ('SHLVL', '1'), ('HOME', '/root'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('TERM', 'xterm'), ('PATH', '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('PWD', '/workspace/build/sllidar_ros2'), ('LC_ALL', 'C.UTF-8'), ('COLCON', '1')]), 'shell': False}
+[0.075363] (sllidar_ros2) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.099725] (-) TimerEvent: {}
+[0.146264] (sllidar_ros2) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.154552] (sllidar_ros2) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.199827] (-) TimerEvent: {}
+[0.222539] (sllidar_ros2) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.236413] (sllidar_ros2) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.236617] (sllidar_ros2) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.236687] (sllidar_ros2) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.240307] (sllidar_ros2) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.300022] (-) TimerEvent: {}
+[0.332364] (sllidar_ros2) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.340823] (sllidar_ros2) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.341152] (sllidar_ros2) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.341716] (sllidar_ros2) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.348875] (sllidar_ros2) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:34 (find_package):\n'}
+[0.349054] (sllidar_ros2) StderrLine: {'line': b'  By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project\n'}
+[0.349120] (sllidar_ros2) StderrLine: {'line': b'  has asked CMake to find a package configuration file provided by\n'}
+[0.349181] (sllidar_ros2) StderrLine: {'line': b'  "ament_cmake", but CMake did not find one.\n'}
+[0.349235] (sllidar_ros2) StderrLine: {'line': b'\n'}
+[0.349288] (sllidar_ros2) StderrLine: {'line': b'  Could not find a package configuration file provided by "ament_cmake" with\n'}
+[0.349342] (sllidar_ros2) StderrLine: {'line': b'  any of the following names:\n'}
+[0.349394] (sllidar_ros2) StderrLine: {'line': b'\n'}
+[0.349446] (sllidar_ros2) StderrLine: {'line': b'    ament_cmakeConfig.cmake\n'}
+[0.349498] (sllidar_ros2) StderrLine: {'line': b'    ament_cmake-config.cmake\n'}
+[0.349550] (sllidar_ros2) StderrLine: {'line': b'\n'}
+[0.349601] (sllidar_ros2) StderrLine: {'line': b'  Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set\n'}
+[0.349654] (sllidar_ros2) StderrLine: {'line': b'  "ament_cmake_DIR" to a directory containing one of the above files.  If\n'}
+[0.349706] (sllidar_ros2) StderrLine: {'line': b'  "ament_cmake" provides a separate development package or SDK, be sure it\n'}
+[0.349757] (sllidar_ros2) StderrLine: {'line': b'  has been installed.\n'}
+[0.349809] (sllidar_ros2) StderrLine: {'line': b'\n'}
+[0.349860] (sllidar_ros2) StderrLine: {'line': b'\x1b[0m\n'}
+[0.349914] (sllidar_ros2) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.349984] (sllidar_ros2) StdoutLine: {'line': b'See also "/workspace/build/sllidar_ros2/CMakeFiles/CMakeOutput.log".\n'}
+[0.353003] (sllidar_ros2) CommandEnded: {'returncode': 1}
+[0.374977] (sllidar_ros2) JobEnded: {'identifier': 'sllidar_ros2', 'rc': 1}
+[0.385566] (-) EventReactorShutdown: {}

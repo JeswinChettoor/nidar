@@ -1,4 +1,3 @@
-
 services:
   nidar:
     build: .
@@ -9,14 +8,21 @@ services:
     tty: true
     working_dir: /workspace
 
+    # Grant full access to host hardware devices
+    privileged: true
+
+    # 1. Pass the host's display environment variable
+    environment:
+      - DISPLAY=${DISPLAY}
+
     volumes:
       - .:/workspace
-      - /dev/bus/usb:/dev/bus/usb
+      # Mount the entire host device tree into the container
+      - /dev:/dev
+      # 2. Mount the X11 display socket into the container
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
 
     # Useful for ROS 2 discovery on Linux
     network_mode: host
-
-    # NVIDIA laptop only; requires NVIDIA Container Toolkit
-    gpus: all
 
     command: bash

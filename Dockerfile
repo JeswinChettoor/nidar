@@ -25,8 +25,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # ABOVE PORTION FROM ROS DOCKER  
 
-RUN printf '%s\n' \
-    'source /opt/ros/humble/setup.bash' \
-    'if [ -f /workspace/install/setup.bash ]; then' \
-    '    source /workspace/install/setup.bash' \
-    'fi' >> /root/.bashrc
+#RUN printf '%s\n' \
+#    'source /opt/ros/humble/setup.bash' \
+#    'if [ -f /workspace/install/setup.bash ]; then' \
+#    '    source /workspace/install/setup.bash' \
+#    'fi' >> /root/.bashrc

@@ -1,0 +1,2 @@
+[0.114s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'metadata', 'list']
+[0.114s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='metadata', subverb_name='list', verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7ffec6104730>, verb_extension=<colcon_metadata.subverb.list.ListMetadataSubverb object at 0x7ffec60cb550>, main=<bound method ListMetadataSubverb.main of <colcon_metadata.subverb.list.ListMetadataSubverb object at 0x7ffec60cb550>>, name=None)
