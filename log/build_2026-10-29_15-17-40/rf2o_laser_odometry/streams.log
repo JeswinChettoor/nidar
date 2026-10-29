@@ -1,0 +1,49 @@
+[0.107s] Invoking command in '/workspace/build/rf2o_laser_odometry': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/workspace/install/mapping:/opt/ros/humble /usr/bin/cmake /workspace/src/rf2o_laser_odometry -DCMAKE_INSTALL_PREFIX=/workspace/install/rf2o_laser_odometry
+[0.147s] -- The C compiler identification is GNU 11.4.0
+[0.185s] -- The CXX compiler identification is GNU 11.4.0
+[0.190s] -- Detecting C compiler ABI info
+[0.240s] -- Detecting C compiler ABI info - done
+[0.247s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.247s] -- Detecting C compile features
+[0.247s] -- Detecting C compile features - done
+[0.249s] -- Detecting CXX compiler ABI info
+[0.299s] -- Detecting CXX compiler ABI info - done
+[0.305s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.305s] -- Detecting CXX compile features
+[0.305s] -- Detecting CXX compile features - done
+[0.306s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.384s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.429s] -- Found rclcpp: 16.0.21 (/opt/ros/humble/share/rclcpp/cmake)
+[0.447s] -- Found rosidl_generator_c: 3.1.9 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.450s] -- Found rosidl_adapter: 3.1.9 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.454s] -- Found rosidl_generator_cpp: 3.1.9 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.460s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.468s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.491s] -- Found rmw_implementation_cmake: 6.1.4 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.492s] -- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.542s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.551s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.568s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.574s] -- Looking for pthread.h
+[0.621s] -- Looking for pthread.h - found
+[0.621s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.669s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.670s] -- Found Threads: TRUE  
+[0.700s] -- Found geometry_msgs: 4.9.2 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.707s] -- Found tf2_geometry_msgs: 0.25.24 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[0.711s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[0.712s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[0.712s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[0.764s] -- Found sensor_msgs: 4.9.2 (/opt/ros/humble/share/sensor_msgs/cmake)
+[0.774s] -- Found nav_msgs: 4.9.2 (/opt/ros/humble/share/nav_msgs/cmake)
+[0.802s] [31mCMake Error at /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
+[0.802s]   Could NOT find Boost (missing: Boost_INCLUDE_DIR)
+[0.802s] Call Stack (most recent call first):
+[0.802s]   /usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake:594 (_FPHSA_FAILURE_MESSAGE)
+[0.802s]   /usr/share/cmake-3.22/Modules/FindBoost.cmake:2360 (find_package_handle_standard_args)
+[0.802s]   CMakeLists.txt:24 (find_package)
+[0.802s] 
+[0.802s] [0m
+[0.802s] -- Configuring incomplete, errors occurred!
+[0.802s] See also "/workspace/build/rf2o_laser_odometry/CMakeFiles/CMakeOutput.log".
+[0.809s] Invoked command in '/workspace/build/rf2o_laser_odometry' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/workspace/install/mapping:/opt/ros/humble /usr/bin/cmake /workspace/src/rf2o_laser_odometry -DCMAKE_INSTALL_PREFIX=/workspace/install/rf2o_laser_odometry

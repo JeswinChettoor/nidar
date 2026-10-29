@@ -1,0 +1,7 @@
+numpy
+pymavlink
+setuptools
+tf_transformations
+
+[test]
+pytest

@@ -28,17 +28,12 @@ def rotate_vector(q, v):
         y + qw * ty + (qz * tx - qx * tz),
         z + qw * tz + (qx * ty - qy * tx),
     )
-
-
 class SurvivorLocalizer(Node):
     def __init__(self):
         super().__init__("survivor_localizer")
-
         self.K = None
         self.D = None
         self.ground_z = 0.0
-
-        # Change to match your exact TF frame if different
         self.camera_frame = "iris/front_camera_link/front_down_camera"
         self.target_frame = "map"
 
@@ -57,11 +52,9 @@ class SurvivorLocalizer(Node):
     def on_info(self, msg: CameraInfo):
         if self.K is not None:
             return
-
         K = np.array(msg.k, dtype=np.float64).reshape(3, 3)
         if K[0, 0] <= 0.0:
             return
-
         self.K = K
         self.D = np.array(msg.d, dtype=np.float64) if msg.d else np.zeros(5)
         self.get_logger().info("Camera intrinsics initialized.")
@@ -69,8 +62,6 @@ class SurvivorLocalizer(Node):
     def on_detection(self, msg: PersonDetectionArray):
         if not msg.detections or self.K is None:
             return
-
-        # Time() = Time 0 -> asks tf2 for the latest available transform
         try:
             tf = self.tf_buffer.lookup_transform(
                 self.target_frame,
@@ -90,8 +81,6 @@ class SurvivorLocalizer(Node):
             # Bottom-center pixel of bounding box
             u = (d.x_min + d.x_max) / 2.0
             v = d.y_max
-
-            # Undistort to normalized optical coordinates (z_opt = 1.0)
             pt = cv2.undistortPoints(
                 np.array([[[u, v]]], dtype=np.float64), self.K, self.D
             )[0, 0]

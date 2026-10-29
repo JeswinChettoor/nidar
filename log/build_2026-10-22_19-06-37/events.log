@@ -1,6 +1,0 @@
-[0.000000] (-) TimerEvent: {}
-[0.000862] (-) JobUnselected: {'identifier': 'mapping'}
-[0.001011] (-) JobUnselected: {'identifier': 'nidar_msgs'}
-[0.001050] (-) JobUnselected: {'identifier': 'perception'}
-[0.001073] (-) JobUnselected: {'identifier': 'sllidar_ros2'}
-[0.001279] (-) EventReactorShutdown: {}
