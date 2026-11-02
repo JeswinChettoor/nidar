@@ -1,4 +1,3 @@
-
 import os
 
 from ament_index_python.packages import get_package_share_directory
@@ -11,8 +10,6 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-
-    # Launch arguments
     use_sim_time = LaunchConfiguration('use_sim_time')
     use_stabilizer = LaunchConfiguration('use_stabilizer')
     use_ekf3 = LaunchConfiguration('use_ekf3')
@@ -21,86 +18,96 @@ def generate_launch_description():
     use_posxy = LaunchConfiguration('use_posxy')
     use_velocity = LaunchConfiguration('use_velocity')
 
-    # Package directories
     mapping_share = get_package_share_directory('mapping')
     rf2o_share = get_package_share_directory('rf2o_laser_odometry')
 
-    # Declare arguments
     declare_args = [
         DeclareLaunchArgument(
-            'use_sim_time', default_value='true'
+            'use_sim_time',
+            default_value='true',
+            description='Use Gazebo simulation clock',
         ),
         DeclareLaunchArgument(
-            'use_stabilizer', default_value='true'
+            'use_stabilizer',
+            default_value='true',
         ),
         DeclareLaunchArgument(
-            'use_ekf3', default_value='true'
+            'use_ekf3',
+            default_value='true',
         ),
         DeclareLaunchArgument(
-            'use_rf2o', default_value='true'
+            'use_rf2o',
+            default_value='true',
         ),
         DeclareLaunchArgument(
-            'use_slam', default_value='true'
+            'use_slam',
+            default_value='true',
         ),
         DeclareLaunchArgument(
-            'use_posxy', default_value='true'
+            'use_posxy',
+            default_value='true',
         ),
         DeclareLaunchArgument(
-            'use_velocity', default_value='true'
+            'use_velocity',
+            default_value='true',
         ),
     ]
 
-    # 1. Static transforms: base_link -> camera / lidar
+    # 1. Static TFs: base_link -> camera / LiDAR
+    # Static transforms do not require continuously advancing sim time.
     static_tf = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
                 mapping_share,
                 'launch',
-                'static_tf.launch.py'
+                'static_tf.launch.py',
             )
-        )
+        ),
     )
 
-    # 2. Optional scan stabilizer
+    # 2. Scan stabilizer: /scan -> /scan_levelled
     stabilizer = Node(
         package='mapping',
         executable='stabilizer',
-        name='scan_stabilizer',
+        name='scan_leveler',
         output='screen',
         parameters=[
-            {'use_sim_time': use_sim_time}
+            {'use_sim_time': use_sim_time},
         ],
         condition=IfCondition(use_stabilizer),
     )
-    # 5. EKF3 bridge
-    # Publishes the relevant MAVLink-derived transforms.
+
+    # 3. ArduPilot EKF3 bridge:
+    #    base_footprint -> base_link
     ekf3 = Node(
         package='mapping',
         executable='ekf3',
         name='footprint2link',
         output='screen',
         parameters=[
-            {'use_sim_time': use_sim_time}
+            {'use_sim_time': use_sim_time},
         ],
         condition=IfCondition(use_ekf3),
     )
 
-    # 6. RF2O laser odometry
+    # 4. RF2O laser odometry:
+    #    /scan_levelled -> odometry and odom -> base_footprint
     rf2o = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
                 rf2o_share,
                 'launch',
-                'rf2o_laser_odometry.launch.py'
+                'rf2o_laser_odometry.launch.py',
             )
         ),
         launch_arguments={
-            'use_sim_time': use_sim_time
+            'use_sim_time': use_sim_time,
         }.items(),
         condition=IfCondition(use_rf2o),
     )
 
-    # 7. SLAM Toolbox: map -> odom
+    # 5. SLAM Toolbox:
+    #    Publishes map -> odom
     slam = Node(
         package='slam_toolbox',
         executable='async_slam_toolbox_node',
@@ -110,35 +117,40 @@ def generate_launch_description():
             os.path.join(
                 mapping_share,
                 'config',
-                'slam_toolbox.yaml'
+                'slam_toolbox.yaml',
             ),
             {'use_sim_time': use_sim_time},
         ],
         condition=IfCondition(use_slam),
     )
 
-    # 8. ArduPilot position / SLAM bridge
+    # 6. ArduPilot external position bridge
     posxy = Node(
         package='mapping',
         executable='posxy',
         name='ap_slam_bridge',
         output='screen',
-        parameters=[{
-            'connection_url': 'udp:127.0.0.1:15001'
-        }],
+        parameters=[
+            {
+                'use_sim_time': use_sim_time,
+                'connection_url': 'udp:127.0.0.1:15001',
+            },
+        ],
         condition=IfCondition(use_posxy),
     )
 
-    # 9. ArduPilot velocity bridge
+    # 7. ArduPilot velocity bridge
     velocity = Node(
         package='mapping',
         executable='velocity',
         name='vel2ap',
         output='screen',
+        parameters=[
+            {'use_sim_time': use_sim_time},
+        ],
         condition=IfCondition(use_velocity),
     )
 
-    # Launch everything
     return LaunchDescription(
         declare_args + [
             static_tf,
@@ -150,3 +162,4 @@ def generate_launch_description():
             velocity,
         ]
     )
+

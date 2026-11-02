@@ -8,7 +8,7 @@ from sensor_msgs.msg import LaserScan
 from tf2_ros import Buffer, TransformException, TransformListener
 
 INPUT_TOPIC = '/scan'
-OUTPUT_TOPIC = '/scan_stabilized'
+OUTPUT_TOPIC = '/scan_levelled'
 FRAME = 'base_footprint'
 TF_TIMEOUT = Duration(seconds=0.1)
 
